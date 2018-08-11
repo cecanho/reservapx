@@ -86,7 +86,7 @@ $xml = simplexml_load_file('../data/reservas.xml');
             <td><?php echo $res->nome ;?></td>
             <td width="15%" align="center"><img src="<?php echo $res->imagem ;?>" width="35%"></td>
             <td><?php echo $res->professor ;?></td>
-            <td><?php echo $res->data ;?></td>
+            <td><?php echo $res->dia ;?></td>
             <td><?php echo $res->horario ;?></td>
             <td><?php echo $res->sala ;?></td>
             <td><?php echo $res->obs ;?></td>
