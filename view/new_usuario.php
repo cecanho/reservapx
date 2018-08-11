@@ -68,7 +68,6 @@
 
         <form method="post" action="adduser.php">
             <table>
-                <tr><td><strong>ID: </strong></td><td><input type="text" name="id" id="id" placeholder="No. do ID do item!" size="75" required  class="form-control"></td></tr>
                 <tr><td><strong>Nome: </strong></td><td><input type="text" name="nome" id="nome" placeholder="Item!" size="75" required  class="form-control"></td></tr>
                 <tr><td><strong>Login: </strong></td><td><input type="text" name="login" id="login" placeholder="Login!" size="75" required  class="form-control"></td></tr>
                 <tr><td><strong>Senha: </strong></td><td><input type="password" name="senha" id="senha" size="75" required  class="form-control"></td></tr>

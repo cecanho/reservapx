@@ -69,7 +69,6 @@
 
     <form method="post" action="add_item.php">
         <table>
-        <tr><td><strong>ID: </strong></td><td><input type="text" name="id" id="id" placeholder="No. do ID do item!" required size="75" class="form-control"></td></tr>
         <tr><td><strong>Nome: </strong></td><td><input type="text" name="nome" id="nome" placeholder="Item!" required  size="75" class="form-control"></td></tr>
         <tr><td><strong>Descrição: </strong></td><td><input type="text" name="descricao" id="descricao" placeholder="Descreva o item aqui!" required  size="75" class="form-control"></td></tr>
         <tr><td><strong>Imagem: </strong></td><td><input type="text" name="imagem" id="imagem" value="imagens/completo.jpg"  size="75" class="form-control"></td></tr>

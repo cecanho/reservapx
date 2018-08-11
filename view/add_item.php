@@ -1,7 +1,8 @@
 <?php
 $xml = simplexml_load_file('../data/item.xml');
+$id = count($xml->item) + 1;
 $item = $xml->addChild('item');
-$item->addAttribute('id',$_POST['id']);
+$item->addAttribute('id',$id);
 $nome = $item->addChild('nome',$_POST['nome']);
 $descricao = $item->addChild('descricao',$_POST['descricao']);
 $item = $item->addChild('imagem',$_POST['imagem']);

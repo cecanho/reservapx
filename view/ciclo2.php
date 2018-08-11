@@ -6,14 +6,7 @@ $xsala = $_COOKIE['sala'];
 $xobservacao = $_COOKIE['observacao'];
 $xml = simplexml_load_file('../data/reservas.xml');
 $ixml = simplexml_load_file('../data/item.xml');
-if(count($xml->reserva)!=0) {
-    foreach ($xml->reserva as $reserva) {
-        $id = $reserva['id'];
-    }
-}else{
-    $id = 1;
-}
-$id++;
+$id = count($xml->reserva) + 1;
 foreach($ixml->item as $item){
     if($item['id']==$_GET['id']){
         $xnome_eqpt = $item->nome;
