@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+<usuario id="1"><nome>Administrador do sistema</nome><login>admin</login><senha>abc123</senha></usuario><usuario id="2"><nome>Cristiano</nome><login>ccecanho</login><senha>abc123</senha></usuario><usuario id="12"><nome>Leonardo Da Vinci</nome><login>lvinci</login><senha>abc123</senha></usuario><usuario id="5"><nome>José de Arimatéia</nome><login>jose</login><senha>123123</senha></usuario></users>
