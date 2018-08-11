@@ -1,4 +1,3 @@
-
 <?php
 $xml = simplexml_load_file('../data/usuario.xml');
 $usuario = $xml->addChild('usuario');

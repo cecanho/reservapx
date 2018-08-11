@@ -1,4 +1,19 @@
 <?php
+if(isset($_GET['action'])){
+    $xml = simplexml_load_file('../data/reservas.xml');
+    $id = $_GET['id'];
+    $index = 0;
+    $i = 0;
+    foreach($xml->reserva as $reserva){
+        if($reserva['id']==$id){
+            $index = $i;
+            break;
+        }
+        $i++;
+    }
+    unset($xml->reserva[$index]);
+    file_put_contents('../data/reservas.xml', $xml->asXML());
+}
 $xml = simplexml_load_file('../data/reservas.xml');
 ?>
 <!DOCTYPE html>
@@ -57,7 +72,7 @@ $xml = simplexml_load_file('../data/reservas.xml');
                     <li><a href="consulta.php">Reservas feitas</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Sair <span class="sr-only"></span></a></li>
+                    <li class="active"><a href="sair.php">Sair <span class="sr-only"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -82,13 +97,13 @@ $xml = simplexml_load_file('../data/reservas.xml');
             <?php foreach($xml->reserva as $res){ ?>
             <td><?php echo $res['id'] ;?></td>
             <td><?php echo $res->nome ;?></td>
-            <td><?php echo $res->imagem ;?></td>
+            <td width="15%" align="center"><img src="<?php echo $res->imagem ;?>" width="35%"></td>
             <td><?php echo $res->professor ;?></td>
             <td><?php echo $res->data ;?></td>
             <td><?php echo $res->horario ;?></td>
             <td><?php echo $res->sala ;?></td>
             <td><?php echo $res->obs ;?></td>
-            <td> <a href="altera_reserva.php?id=<?php echo $res['id']; ?>">Editar</a> | <a href="consulta_reserva.php?action=delete&id=<?php echo $res['id']; ?>" onclick="return confirm('Tem certeza que deseja apagar?')">Cancelar</a> </td>
+            <td> <a href="altera_reserva.php?id=<?php echo $res['id']; ?>">Editar</a> | <a href="consulta.php?action=delete&id=<?php echo $res['id']; ?>" onclick="return confirm('Tem certeza que deseja apagar?')">Cancelar</a> </td>
         </tr>
         <?php }?>
         </tbody>

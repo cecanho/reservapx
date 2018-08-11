@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -60,7 +56,7 @@ session_start();
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Sair <span class="sr-only"></span></a></li>
+                    <li class="active"><a href="sair.php">Sair <span class="sr-only"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

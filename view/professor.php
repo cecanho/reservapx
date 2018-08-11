@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -60,7 +56,7 @@ session_start();
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Sair <span class="sr-only"></span></a></li>
+                    <li class="active"><a href="sair.php">Sair <span class="sr-only"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -71,7 +67,6 @@ session_start();
         <h2>Sistemas de reserva de equipamentos ASSER</h2>
         <p>Olá, nosso sistema tem o objetivo de manter usuários e equipamentos do sistema em um ambiente confortável para acesso
             tanto do pessoal da informática responsável pela montagem, quanto para o professores reservarem equipamentos por sala de aula.</p>
-
     </div>
 
 </div> <!-- /container -->

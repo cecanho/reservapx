@@ -59,7 +59,7 @@ $xml = simplexml_load_file('../data/reservas.xml');
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Sair <span class="sr-only"></span></a></li>
+                    <li class="active"><a href="sair.php">Sair <span class="sr-only"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -84,7 +84,7 @@ $xml = simplexml_load_file('../data/reservas.xml');
             <?php foreach($xml->reserva as $res){ ?>
             <td><?php echo $res['id'] ;?></td>
             <td><?php echo $res->nome ;?></td>
-            <td><?php echo $res->imagem ;?></td>
+            <td width="15%" align="center"><img src="<?php echo $res->imagem ;?>" width="35%"></td>
             <td><?php echo $res->professor ;?></td>
             <td><?php echo $res->data ;?></td>
             <td><?php echo $res->horario ;?></td>

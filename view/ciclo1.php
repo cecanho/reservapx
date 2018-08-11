@@ -1,9 +1,9 @@
 <?php
-session_start();
-$_SESSION['dia'] = $_POST['dia'];
-$_SESSION['horario'] = $_POST['horario'];
-$_SESSION['sala'] = $_POST['sala'];
-$_SESSION['observacao'] = $_POST['observacao'];
+setcookie('dia',$_POST['dia']);
+setcookie('horario',$_POST['horario']);
+setcookie('sala',$_POST['sala']);
+setcookie('observacao',$_POST['observacao']);
+
 $xml = simplexml_load_file('../data/reservas.xml');
 ?>
 
@@ -65,7 +65,7 @@ $xml = simplexml_load_file('../data/reservas.xml');
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Sair <span class="sr-only"></span></a></li>
+                    <li class="active"><a href="sair.php">Sair <span class="sr-only"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -83,7 +83,7 @@ $xml = simplexml_load_file('../data/reservas.xml');
                 $i = 0;
                 if(count($xml->reservas)!=0) {
                     foreach ($xml->reserva as $res) {
-                        if (strcmp($res->dia, $_SESSION['dia']) != 0) {
+                        if (strcmp($res->dia, $_COOKIE['dia']) != 0) {
                             $umarray[$i] = $res->id_eqpt;
                             $i++;
                         }

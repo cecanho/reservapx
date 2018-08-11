@@ -1,3 +1,15 @@
+<?php
+function SomarData($data, $dias, $meses, $ano)
+{
+    /*www.brunogross.com*/
+    //passe a data no formato dd/mm/yyyy
+    date_default_timezone_set('America/Sao_Paulo');
+    $data = explode("/", $data);
+    $newData = date("d/m/Y", mktime(0, 0, 0, $data[1] + $meses,
+        $data[0] + $dias, $data[2] + $ano) );
+    return $newData;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -56,7 +68,7 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Sair <span class="sr-only"></span></a></li>
+                    <li class="active"><a href="sair.php">Sair <span class="sr-only"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -69,21 +81,25 @@
 
         <form method="post" action="ciclo1.php">
             <table>
-                <tr><td><strong>Dia </strong></td><td><select name="dia" class="form-control">
+                <tr><td><strong>Dia </strong></td><td><select name="dia" id="dia" class="form-control">
+                            <option>Escolha uma data!</option>
                             <?php
-
-                            echo '<option value="' . date('d-m-Y') . '">' . date('d-m-Y') . '</option>';
-
+                            $data = date('d/m/Y');
+                            for($i=0;$i<3;$i++){
+                                $newData = SomarData($data,$i);
+                                echo '<option value="' . $newData . '">' . $newData . '</option>';
+                            }
                             ?>
                         </select></td></tr>
                 <tr><td><strong>Horário: </strong></td><td><select name="horario" class="form-control">
+                            <option>Escolha um Horário</option>
                             <option value="8:00">8:00</option>
-                            <option value="8:00">9:35</option>
-                            <option value="8:00">19:10</option>
-                            <option value="8:00">20:45</option>
+                            <option value="9:35">9:35</option>
+                            <option value="19:10">19:10</option>
+                            <option value="20:45">20:45</option>
                         </select></td></tr>
-                <tr><td>Sala: </td><td><input type="text" class="form-control" name="sala" size="75" placeholder="S1B1"></td></tr>
-                <tr><td>Observacao: </td><td><input type="text" class="form-control" name="observacao" size="75"></td></tr>
+                <tr><td>Sala: </td><td><input type="text" class="form-control" name="sala" size="75" value="S1B1"></td></tr>
+                <tr><td>Observacao: </td><td><input type="text" class="form-control" name="observacao" size="75" value="Nd"></td></tr>
                <tr><td></td><td align="right"><input type="submit" name="cadusu" id="cadusu" value="Avançar" class="btn-info"></td></tr>
             </table>
         </form>

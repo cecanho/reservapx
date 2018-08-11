@@ -59,7 +59,7 @@ $xml = simplexml_load_file('../data/item.xml');
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Sair <span class="sr-only"></span></a></li>
+                    <li class="active"><a href="sair.php">Sair <span class="sr-only"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -82,7 +82,7 @@ $xml = simplexml_load_file('../data/item.xml');
         <td><?php echo $item['id'] ;?></td>
         <td><?php echo $item->nome ;?></td>
         <td><?php echo $item->descricao ;?></td>
-        <td align="center"><img src="<?php echo $item->imagem ;?>" width="25%"></td>
+        <td align="center" width="15%"><img src="<?php echo $item->imagem ;?>" width="35%"></td>
         <td> <a href="altera_item.php?id=<?php echo $item['id']; ?>">Editar</a>  </td>
     </tr>
     <?php }?>

@@ -1,11 +1,9 @@
 <?php
-session_start();
 if(isset($_GET['action'])){
     $xml = simplexml_load_file('../data/usuario.xml');
     $id = $_GET['id'];
     $index = 0;
     $i = 0;
-
     foreach($xml->usuario as $usuario){
         if($usuario['id']==$id){
             $index = $i;
