@@ -61,7 +61,6 @@ $xml = simplexml_load_file('../data/reservas.xml');
                     <li class="active"><a href="professor.php">Home</a></li>
                     <li><a href="new_reserva.php" >Nova reserva</a></li>
                     <li><a href="consulta.php">Reservas feitas</a></li>
-                    <li><a href="cancela.php">Cancelar Reserva</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -81,41 +80,42 @@ $xml = simplexml_load_file('../data/reservas.xml');
                 <?php
                 $umarray = array();
                 $i = 0;
-                if(count($xml->reservas)!=0) {
+                if(count($xml->reserva)!=0) {
                     foreach ($xml->reserva as $res) {
-                        if (strcmp($res->dia, $_COOKIE['dia']) != 0) {
-                            $umarray[$i] = $res->id_eqpt;
+                        if (strcmp($res->dia, $_COOKIE['dia']) == 0 || strcmp($res->horario, $_COOKIE['horario'])) {
+                            $umarray[$i] = json_decode($res->id_eqpt);
                             $i++;
                         }
                     }
-
+				}
                 $i = 0;
+				$l = 0;
                 $xitem = simplexml_load_file('../data/item.xml');
                 foreach($xitem->item as $item){
-                    if($item->id == $umarray[$i]){
-                    ?>
-                    <tr>
-                    <td><?php echo $item['id'] ;?></td>
-                    <td><?php echo $item->nome ;?></td>
-                    <td><?php echo $item->descricao ;?></td>
-                    <td align="center"><img src="<?php echo $item->imagem ;?>" width="25%"></td>
-                    <td align="center"> <a href="ciclo2.php?id=<?php echo $item['id']; ?>">Reservar Este!</a>  </td>
-                    </tr>
-                <?php
-                        $i++;}}}else{
-                    $xitem = simplexml_load_file('../data/item.xml');
-                    foreach($xitem->item as $item) { ?>
+                    if($item['id'] != $umarray[$i]){
+						$dispo[$l] = $item;
+						$l++;
+					}
+					if($item['id'] == $umarray[$i]){
+						$i++;
+					}					
+				}
+				
+				foreach($dispo as $it){
+				?>
                         <tr>
-                            <td><?php echo $item['id'] ;?></td>
-                            <td><?php echo $item->nome ;?></td>
-                            <td><?php echo $item->descricao ;?></td>
-                            <td align="center"><img src="<?php echo $item->imagem ;?>" width="25%"></td>
-                            <td align="center"> <a href="ciclo2.php?id=<?php echo $item['id']; ?>">Reservar Este!</a>  </td>
+                            <td><?php echo $it['id'] ;?></td>
+                            <td><?php echo $it->nome ;?></td>
+                            <td><?php echo $it->descricao ;?></td>
+                            <td align="center"><img src="<?php echo $it->imagem ;?>" width="25%"></td>
+                            <td align="center"> <a href="ciclo2.php?id=<?php echo $it['id']; ?>">Reservar Este!</a>  </td>
                         </tr>
                         <?php
-                    }
-                }?>
+				}
+                    ?>
+                    
             </table>
+			
         </form>
     </div>
 

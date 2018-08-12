@@ -64,7 +64,6 @@ function SomarData($data, $dias, $meses, $ano)
                     <li class="active"><a href="professor.php">Home</a></li>
                     <li><a href="new_reserva.php" >Nova reserva</a></li>
                     <li><a href="consulta.php">Reservas feitas</a></li>
-                    <li><a href="cancela.php">Cancelar Reserva</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
