@@ -15,7 +15,7 @@ foreach($ixml->item as $item){
 }
 $res = $xml->addChild('reserva');
 $res->addAttribute('id',$id);
-$id_eqpt = $res->addChild('id_eqpt',$_GET['id']);
+$id_eqpt = $res->addChild('id_item',$_GET['id']);
 $nome_eqpt = $res->addChild('nome',$xnome_eqpt);
 $imagem= $res->addChild('imagem',$ximagem);
 $professor = $res->addChild('professor',$xprofessor);

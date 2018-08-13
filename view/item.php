@@ -79,7 +79,7 @@ $xml = simplexml_load_file('../data/item.xml');
     <tbody>
     <tr>
         <?php foreach($xml->item as $item){ ?>
-        <td><?php echo $item['id'] ;?></td>
+        <td><?php echo $item->id_item ;?></td>
         <td><?php echo $item->nome ;?></td>
         <td><?php echo $item->descricao ;?></td>
         <td align="center" width="15%"><img src="<?php echo $item->imagem ;?>" width="35%"></td>

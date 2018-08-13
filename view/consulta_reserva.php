@@ -82,7 +82,7 @@ $xml = simplexml_load_file('../data/reservas.xml');
         <tbody>
         <tr>
             <?php foreach($xml->reserva as $res){ ?>
-            <td><?php echo $res['id'] ;?></td>
+            <td><?php echo $res->id_item ;?></td>
             <td><?php echo $res->nome ;?></td>
             <td width="15%" align="center"><img src="<?php echo $res->imagem ;?>" width="35%"></td>
             <td><?php echo $res->professor ;?></td>

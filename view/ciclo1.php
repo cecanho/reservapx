@@ -83,7 +83,7 @@ $xml = simplexml_load_file('../data/reservas.xml');
                 if(count($xml->reserva)!=0) {
                     foreach ($xml->reserva as $res) {
                         if (strcmp($res->dia, $_COOKIE['dia']) == 0 || strcmp($res->horario, $_COOKIE['horario'])) {
-                            $umarray[$i] = json_decode($res->id_eqpt);
+                            $umarray[$i] = json_decode($res->id_item);
                             $i++;
                         }
                     }
@@ -91,12 +91,13 @@ $xml = simplexml_load_file('../data/reservas.xml');
                 $i = 0;
 				$l = 0;
                 $xitem = simplexml_load_file('../data/item.xml');
+				if(count($umarray)!=0){
                 foreach($xitem->item as $item){
                     if($item['id'] != $umarray[$i]){
 						$dispo[$l] = $item;
 						$l++;
 					}
-					if($item['id'] == $umarray[$i]){
+					if($item->id_item == $umarray[$i]){
 						$i++;
 					}					
 				}
@@ -104,13 +105,26 @@ $xml = simplexml_load_file('../data/reservas.xml');
 				foreach($dispo as $it){
 				?>
                         <tr>
-                            <td><?php echo $it['id'] ;?></td>
+                            <td><?php echo $it->id_item ;?></td>
                             <td><?php echo $it->nome ;?></td>
                             <td><?php echo $it->descricao ;?></td>
                             <td align="center"><img src="<?php echo $it->imagem ;?>" width="25%"></td>
                             <td align="center"> <a href="ciclo2.php?id=<?php echo $it['id']; ?>">Reservar Este!</a>  </td>
                         </tr>
                         <?php
+				}
+				}else{
+				foreach($xitem->item as $it){
+				?>
+                        <tr>
+                            <td><?php echo $it->id_item ;?></td>
+                            <td><?php echo $it->nome ;?></td>
+                            <td><?php echo $it->descricao ;?></td>
+                            <td align="center"><img src="<?php echo $it->imagem ;?>" width="25%"></td>
+                            <td align="center"> <a href="ciclo2.php?id=<?php echo $it['id']; ?>">Reservar Este!</a>  </td>
+                        </tr>
+                        <?php
+				}	
 				}
                     ?>
                     
