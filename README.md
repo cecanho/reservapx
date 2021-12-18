@@ -9,11 +9,9 @@ Desenvolvido em PHP, o sistema se propõe a criar um espaço onde professores e 
  </p>
 <h3>Como testá-lo?</h3>
 <p>
-Este sistema de reserva tem como objetivo manter reservas de equipamentos de uma instituição. Para instalá-lo basta clonar o projeto e criar um banco de dados.
+Este sistema de reserva tem como objetivo manter reservas de equipamentos de uma instituição. Não é considerado seguro armazenar as informações abertas como este caso em XML.
 </p>
-<p>
-A conexão PDO dos BD está presente na maioria dos arquivos, então é necessário configurar o banco, o usuário e a senha da base MySQL.
-</p>
+
 <h3>Sobre</h3>
 Professor Cristiano José Cecanho é formado em Sistemas de Informação (2004) pelas faculdades Claretianas, especialista em Tecnologias e Educação a Distância, programador em linguagens como JAVA, PHP, PASCAL, C, C++, Android, com conhecimentos em SQL para bancos de dados como MySQL, MS SQL Server e Firebird.
 <h3>Vídeo de apoio/apresentação</h3>
